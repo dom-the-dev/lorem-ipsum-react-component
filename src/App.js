@@ -5,12 +5,10 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-
                 <LoremIpsum
                     words={100}
-                    paragraphs={5}
+                    paragraphs={3}
                 />
-
             </header>
         </div>
     );

@@ -13,12 +13,19 @@ const LoremIpsum = ({words, paragraphs}) => {
         }
 
         for (let i = 0; i < words; i++) {
-
             if (i > 0) {
                 text += ' '
             }
 
-            text += wordsList[Math.floor(Math.random() * wordsList.length)]
+
+            let nextWord = wordsList[Math.floor(Math.random() * wordsList.length)]
+
+            if (i === 0) {
+                nextWord = nextWord.charAt(0).toUpperCase() + nextWord.slice(1);
+            }
+
+            text += nextWord
+
         }
 
         text += '.';
@@ -26,11 +33,10 @@ const LoremIpsum = ({words, paragraphs}) => {
     }
 
     const renderParagraphs = () => {
-
         let text = [];
 
         for (let i = 0; i < paragraphs; i++) {
-            text.push(<p>{renderText(words / paragraphs)}</p>)
+            text.push(<p key={'lorem-ipsum-paragraph-' + i}>{renderText(words / paragraphs)}</p>)
         }
 
         return text;
@@ -44,8 +50,8 @@ const LoremIpsum = ({words, paragraphs}) => {
 };
 
 LoremIpsum.propTypes = {
-    words: PropTypes.number.isRequired,
-    paragraphs: PropTypes.number.isRequired
+    words: PropTypes.number,
+    paragraphs: PropTypes.number
 };
 
 LoremIpsum.defaultProps = {
