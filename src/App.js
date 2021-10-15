@@ -1,4 +1,3 @@
-import './App.css';
 import LoremIpsum from "./components/LoremIpsum";
 
 function App() {
